@@ -1,0 +1,242 @@
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 15px;
+  flex: 1 1 200px; /* crescer, encolher, largura mínima 200px */
+  min-width: 200px; /* evita que fiquem muito pequenos */
+  height: auto; /* permite ajustar altura conforme conteúdo */
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;   /* impede que o círculo saia do card */
+  z-index: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap; /* permite que os cards quebrem de linha em telas pequenas */
+  gap: 1rem; /* espaço entre os cards */
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* permite quebrar linhas se necessário */
+}
+
+.info img {
+  max-width: 80px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column; /* empilha os cards verticalmente */
+    gap: 1rem;
+  }
+
+  .card {
+    width: 100%; /* ocupa toda a largura disponível */
+    height: auto; /* altura ajustável */
+  }
+
+  .info {
+    flex-direction: row; /* mantém conteúdo horizontal ou ajusta se precisar */
+  }
+}
+
+.btn-clientes {
+  background: #1a1a2e;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.table {
+  flex: 2;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  font-size: 14px;
+}
+
+/* NOVAS REGRAS PARA RESPONSIVIDADE */
+
+.dashboard, .graficos {
+  display: flex; /* garanta que seja flex container */
+  flex-wrap: wrap; /* permite quebra de linha */
+  gap: 1rem; /* espaço entre os itens */
+}
+
+@media (max-width: 768px) {
+  .dashboard, .graficos {
+    flex-direction: column;
+  }
+
+  .left-column, .chart {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .card, .card-2, .card-3 {
+    height: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+.card:hover .ag-courses-item_bg {
+  transform: scale(10);
+}
+
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+
+.ag-courses-item_bg {
+  height: 30px;
+  width: 30px;
+
+  z-index: 1;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.row .card:nth-child(1) .ag-courses-item_bg {
+  background-color: rgba(204, 216, 248, 0.4); /* rosa */
+}
+
+.row .card:nth-child(2) .ag-courses-item_bg {
+  background-color: rgba(206, 255, 216, 0.4); /* verde */
+}
+
+.row .card:nth-child(3) .ag-courses-item_bg {
+  background-color: rgba(248, 207, 250, 0.4); /* laranja */
+}
+
+.row .card:nth-child(4) .ag-courses-item_bg {
+  background-color: rgba(247, 223, 202, 0.4); /* azul */
+}
+
+/* garante que o conteúdo fique acima do círculo */
+.card .info {
+  position: relative;
+  z-index: 1;
+}
+
+.acessos-list {
+  max-height: calc(4 * 60px); /* mostra 4 acessos visíveis */
+  overflow-y: auto; /* ativa a barra de rolagem */
+  padding-right: 40rem; /* espaço extra à direita para “empurrar” a scrollbar */
+}
+
+/* largura do scrollbar */
+.acessos-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.acessos-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+.acessos-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* CÍRCULO - NÚMERO DO APARTAMENTO */
+
+.nome-apto {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;         /* impede quebra de linha */
+  overflow: hidden;            /* esconde texto que ultrapassa */
+  text-overflow: ellipsis;     /* adiciona "..." no final */
+}
+
+.nome {
+  flex: 1;                     /* ocupa o espaço disponível */
+  margin-right: 6px;           /* espaçamento entre o nome e o círculo */
+  min-width: 0;                /* necessário pro text-overflow funcionar em flex */
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 22px;
+  border-radius: 20px; /* menos arredondado, mais retangular */
+  border: 1px solid #838282e8;
+  font-size: 12px;
+  text-align: center;
+}
+
+.circle1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 22px;
+  border-radius: 20px; /* menos arredondado, mais retangular */
+  font-size: 12px;
+  text-align: center;
+  background-color: #dcfce7;
+  color: #1f8645;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+/* Largura dos acessos e do gráfico */
+
+.acessos-section {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.acessos-card {
+  flex: 0 0 60%;  /* ocupa 60% da largura total */
+  max-width: 700px;
+}
+
+.chart-card {
+  flex: 0 0 35%;  /* gráfico ocupa menos espaço */
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .acessos-section {
+    flex-direction: column;
+  }
+  .acessos-card,
+  .chart-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

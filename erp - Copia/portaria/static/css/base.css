@@ -1,0 +1,141 @@
+body {
+    font-family: 'system-ui';
+    background: linear-gradient(40deg, #fafafa, #f1f7fd);
+    margin: 0;
+    padding: 0;
+  }
+  
+.sidebar {
+    background-color: #fafafa;
+    width: 255px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.main-content {
+  margin-left: 270px;
+  transition: margin 0.3s;
+}
+
+.form-wrapper {
+  max-width: 50rem;   /* largura fixa */
+  margin: 0 auto;     /* centraliza horizontalmente */
+}
+
+.sidebar.minimized + .main-content {
+  margin-left: 100px;
+}
+
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  height: 35px;        /* altura fixa */
+  line-height: 35px;   /* alinha o texto verticalmente */
+  margin-right: 20px;
+  margin-left: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+  
+.sidebar .nav-link.active {
+  background-color: #efe2f9;
+  font-weight: 600;
+  color: #47124f;
+  position: relative;
+  margin-right: 20px;
+  height: 35px;
+  border-radius: 20px;
+}
+  
+.sidebar .nav-link:hover {
+  background-color: #efe2f9;
+  color: #47124f; /* opcional se quiser mudar a cor do texto */
+  border-radius: 20px;
+}
+  
+/* Footer */
+.footer-custom {
+  margin-left: 0px; /* ou o valor que você quiser */
+}
+
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 13px;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+/* Sidebar minimizada */
+.sidebar.minimized {
+  width: 105px !important;
+  padding-top: 0.5rem;
+}
+
+/* Esconde o texto dos menus */
+.sidebar.minimized .menu-text {
+  display: none !important;
+}
+
+/* Centraliza os itens do menu */
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar.minimized .nav-link {
+  justify-content: center;
+}
+
+/* Título NAVEGAÇÃO */
+.sidebar.minimized .nav-title {
+  display: none !important;
+}
+
+/* Reduz tamanho horizontal dos links ativos quando sidebar minimizada */
+.sidebar.minimized .nav-link.active {
+  margin-right: 5px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+/* Redimensiona e centraliza as imagens quando minimizado */
+.sidebar .nav-link img {
+  width: 45px;
+  height: 24px;
+}
+
+/* Animação suave toda vez que a página é carregada. */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.aparecer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Remove o glow azul de todos os inputs do formulário */
+input.form-control:focus,
+select.form-control:focus,
+textarea.form-control:focus {
+    box-shadow: none;    /* Remove o efeito azul */
+    border-color: #83828238; /* Mantém a borda que você definiu */
+    outline: none;       /* Remove qualquer contorno adicional */
+}
+
+.btn-outline-purple {
+  color: #47124f;
+  border: 1px solid #47124f;
+}
+
+.btn-outline-purple:hover {
+  background-color: #efe2f9;
+  color: #47124f;
+  border: 1px solid #47124f;
+}
