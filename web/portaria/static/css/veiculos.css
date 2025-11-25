@@ -1,0 +1,29 @@
+  .acessos-list {
+  max-height: calc(5 * 60px); /* mostra 2 acessos visíveis */
+  overflow-y: auto; /* ativa a barra de rolagem */
+  padding-right: 40rem; /* espaço extra à direita para “empurrar” a scrollbar */
+}
+
+/* largura do scrollbar */
+.acessos-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.acessos-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+.acessos-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  /* Quebra de linha no título "Veículos Cadastrados" */
+  .navbar .navbar-brand .fw-bold {
+    white-space: normal !important;
+    font-size: 26px !important;
+    line-height: 1.2;
+    display: block;
+  }
+}
